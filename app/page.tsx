@@ -227,6 +227,96 @@ const candidates: Candidate[] = [
     traits: ["catFace", "fashion", "stylish", "confident", "cool", "monolid", "femaleFit", "luxury"]
   },
   {
+    name: "Rosé",
+    region: "韓國／紐西蘭",
+    gender: "female",
+    instagram: "https://www.instagram.com/roses_are_rosie/",
+    archetype: "音樂玫瑰型",
+    bio: "BLACKPINK 成員，嗓音有辨識度，氣質溫柔又帶一點文藝感。",
+    traits: ["music", "creative", "deep", "gentle", "dogFace", "femaleTall", "fashion", "introvert"]
+  },
+  {
+    name: "Wonyoung",
+    region: "韓國",
+    gender: "female",
+    instagram: "https://www.instagram.com/for_everyoung10/",
+    archetype: "公主畫報型",
+    bio: "IVE 成員，形象高挑精緻，適合喜歡甜美、明亮和畫報感的人。",
+    traits: ["femaleTall", "tall", "sweet", "doubleEyelid", "luxury", "fashion", "bright", "editorial"]
+  },
+  {
+    name: "An Yujin",
+    region: "韓國",
+    gender: "female",
+    instagram: "https://www.instagram.com/_yujin_an/",
+    archetype: "陽光隊長型",
+    bio: "IVE 成員，形象明亮俐落，帶有健康、外向和可靠的氣質。",
+    traits: ["dogFace", "bright", "extrovert", "athletic", "femaleFit", "steady", "direct", "sports"]
+  },
+  {
+    name: "Taeyeon",
+    region: "韓國",
+    gender: "female",
+    instagram: "https://www.instagram.com/taeyeon_ss/",
+    archetype: "清冷主唱型",
+    bio: "少女時代成員與歌手，聲線細膩，氣質清冷但情感表達很強。",
+    traits: ["music", "creative", "cool", "deep", "introvert", "catFace", "femaleSoft", "monolid"]
+  },
+  {
+    name: "Nayeon",
+    region: "韓國",
+    gender: "female",
+    instagram: "https://www.instagram.com/nayeonyny/",
+    archetype: "兔系甜笑型",
+    bio: "TWICE 成員，形象甜美活潑，笑容很有感染力。",
+    traits: ["dogFace", "sweet", "bright", "extrovert", "doubleEyelid", "funny", "femaleSoft", "dance"]
+  },
+  {
+    name: "Momo",
+    region: "日本／韓國",
+    gender: "female",
+    instagram: "https://www.instagram.com/momo/",
+    archetype: "舞蹈力量型",
+    bio: "TWICE 成員，舞蹈能力突出，適合喜歡運動感和舞台存在感的人。",
+    traits: ["dance", "athletic", "femaleFit", "stageBody", "bold", "dogFace", "sports", "extrovert"]
+  },
+  {
+    name: "Winter",
+    region: "韓國",
+    gender: "female",
+    instagram: "https://www.instagram.com/imwinter/",
+    archetype: "冷甜反差型",
+    bio: "aespa 成員，外型清冷精緻，但舞台和表情有甜感反差。",
+    traits: ["catFace", "cool", "sweet", "monolid", "clean", "introvert", "dance", "femaleSoft"]
+  },
+  {
+    name: "Ningning",
+    region: "中國／韓國",
+    gender: "female",
+    instagram: "https://www.instagram.com/imnotningning/",
+    archetype: "明艷主唱型",
+    bio: "aespa 成員，聲音有力量，形象明艷又有自信。",
+    traits: ["music", "bold", "luxury", "doubleEyelid", "confident", "stageBody", "fashion", "extrovert"]
+  },
+  {
+    name: "Yuqi",
+    region: "中國／韓國",
+    gender: "female",
+    instagram: "https://www.instagram.com/yuqisong.923/",
+    archetype: "低音直球型",
+    bio: "(G)I-DLE 成員，聲線有特色，個性直率，帶有幽默和反差魅力。",
+    traits: ["funny", "direct", "music", "dogFace", "bright", "confident", "teasing", "femaleFit"]
+  },
+  {
+    name: "Miyeon",
+    region: "韓國",
+    gender: "female",
+    instagram: "https://www.instagram.com/noodle.zip/",
+    archetype: "甜美主唱型",
+    bio: "(G)I-DLE 成員，氣質甜美乾淨，適合喜歡溫柔和明亮感的人。",
+    traits: ["sweet", "doubleEyelid", "music", "gentle", "dogFace", "clean", "femaleSoft", "bright"]
+  },
+  {
     name: "Jungkook",
     region: "韓國",
     gender: "male",
@@ -333,6 +423,132 @@ const candidates: Candidate[] = [
     archetype: "陽光高挑型",
     bio: "演員與歌手，形象高挑清爽，帶有外向、輕鬆和時髦的魅力。",
     traits: ["dogFace", "bright", "extrovert", "maleTall", "fashion", "playful", "clean", "sports"]
+  },
+  {
+    name: "RM",
+    region: "韓國",
+    gender: "male",
+    instagram: "https://www.instagram.com/rkive/",
+    archetype: "思想藝術型",
+    bio: "BTS 成員，氣質成熟、有思想感，適合喜歡深度、音樂和藝術氛圍的人。",
+    traits: ["music", "deep", "creative", "introvert", "focused", "artistic", "maleTall", "calm"]
+  },
+  {
+    name: "Jimin",
+    region: "韓國",
+    gender: "male",
+    instagram: "https://www.instagram.com/j.m/",
+    archetype: "溫柔舞者型",
+    bio: "BTS 成員，舞台表現細膩，氣質柔和但很有吸引力。",
+    traits: ["dance", "gentle", "soft", "kind", "catFace", "maleLean", "music", "quietCare"]
+  },
+  {
+    name: "J-Hope",
+    region: "韓國",
+    gender: "male",
+    instagram: "https://www.instagram.com/uarmyhope/",
+    archetype: "陽光舞台型",
+    bio: "BTS 成員，舞蹈和舞台能量鮮明，適合喜歡外向、正向和節奏感的人。",
+    traits: ["dance", "bright", "extrovert", "dogFace", "athletic", "funny", "direct", "sports"]
+  },
+  {
+    name: "SUGA",
+    region: "韓國",
+    gender: "male",
+    instagram: "https://www.instagram.com/agustd/",
+    archetype: "冷感製作人型",
+    bio: "BTS 成員與音樂製作人，氣質冷靜，適合喜歡才華、低調和深度的人。",
+    traits: ["music", "focused", "introvert", "cool", "deep", "catFace", "monolid", "quietCare"]
+  },
+  {
+    name: "Jin",
+    region: "韓國",
+    gender: "male",
+    instagram: "https://www.instagram.com/jin/",
+    archetype: "幽默暖男型",
+    bio: "BTS 成員，形象親切明亮，帶有幽默和生活感。",
+    traits: ["dogFace", "funny", "kind", "bright", "gentle", "maleWarm", "music", "teasing"]
+  },
+  {
+    name: "Kai",
+    region: "韓國",
+    gender: "male",
+    instagram: "https://www.instagram.com/zkdlin/",
+    archetype: "性感舞者型",
+    bio: "EXO 成員，舞台魅力強，適合喜歡舞蹈、時尚和強烈存在感的人。",
+    traits: ["dance", "fashion", "bold", "confident", "catFace", "maleFit", "stageBody", "luxury"]
+  },
+  {
+    name: "Baekhyun",
+    region: "韓國",
+    gender: "male",
+    instagram: "https://www.instagram.com/baekhyunee_exo/",
+    archetype: "甜感主唱型",
+    bio: "EXO 成員，聲音有辨識度，形象明亮又很會帶氣氛。",
+    traits: ["music", "bright", "dogFace", "extrovert", "funny", "doubleEyelid", "teasing", "clean"]
+  },
+  {
+    name: "Taemin",
+    region: "韓國",
+    gender: "male",
+    instagram: "https://www.instagram.com/xoalsox/",
+    archetype: "藝術舞者型",
+    bio: "SHINee 成員與 solo 歌手，舞台風格藝術感強，氣質神秘又細膩。",
+    traits: ["dance", "artistic", "catFace", "cool", "mysterious", "maleLean", "creative", "introvert"]
+  },
+  {
+    name: "Mingyu",
+    region: "韓國",
+    gender: "male",
+    instagram: "https://www.instagram.com/min9yu_k/",
+    archetype: "高挑陽光型",
+    bio: "SEVENTEEN 成員，形象高挑、外向、生活感強，適合喜歡陽光大型犬感的人。",
+    traits: ["dogFace", "maleTall", "bright", "extrovert", "sports", "fashion", "direct", "maleWarm"]
+  },
+  {
+    name: "Wonwoo",
+    region: "韓國",
+    gender: "male",
+    instagram: "https://www.instagram.com/everyone_woo/",
+    archetype: "低調貓相型",
+    bio: "SEVENTEEN 成員，氣質安靜冷調，適合喜歡貓相、慢熟和沉穩感的人。",
+    traits: ["catFace", "introvert", "cool", "monolid", "deep", "quietCare", "maleLean", "calm"]
+  },
+  {
+    name: "Hyunjin",
+    region: "韓國",
+    gender: "male",
+    instagram: "https://www.instagram.com/hynjinnnn/",
+    archetype: "畫報舞者型",
+    bio: "Stray Kids 成員，舞台表現和視覺風格鮮明，適合喜歡時髦和藝術感的人。",
+    traits: ["dance", "fashion", "catFace", "stylish", "artistic", "maleTall", "confident", "cool"]
+  },
+  {
+    name: "Felix",
+    region: "澳洲／韓國",
+    gender: "male",
+    instagram: "https://www.instagram.com/yong.lixx/",
+    archetype: "低音甜心型",
+    bio: "Stray Kids 成員，低音聲線有特色，形象甜但舞台反差很強。",
+    traits: ["dogFace", "sweet", "music", "dance", "bright", "maleLean", "gentle", "teasing"]
+  },
+  {
+    name: "Yeonjun",
+    region: "韓國",
+    gender: "male",
+    instagram: "https://www.instagram.com/yawnzzn/",
+    archetype: "時髦舞台型",
+    bio: "TXT 成員，舞台感和穿搭風格強，適合喜歡潮流和外放魅力的人。",
+    traits: ["fashion", "dance", "extrovert", "confident", "maleTall", "catFace", "stylish", "direct"]
+  },
+  {
+    name: "G-DRAGON",
+    region: "韓國",
+    gender: "male",
+    instagram: "https://www.instagram.com/xxxibgdrgn/",
+    archetype: "潮流創作型",
+    bio: "BIGBANG 成員與創作人，風格強烈，適合喜歡音樂、時尚和個人態度的人。",
+    traits: ["music", "fashion", "creative", "confident", "catFace", "artistic", "focused", "luxury"]
   }
 ];
 

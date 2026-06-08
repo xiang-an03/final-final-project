@@ -317,6 +317,60 @@ const candidates: Candidate[] = [
     traits: ["sweet", "doubleEyelid", "music", "gentle", "dogFace", "clean", "femaleSoft", "bright"]
   },
   {
+    name: "瀨戶環奈",
+    region: "日本",
+    gender: "female",
+    instagram: "https://www.instagram.com/setokanna_/",
+    archetype: "高挑寫真新星型",
+    bio: "日本寫真與成人影像系藝人，形象高挑亮眼，適合喜歡明艷、健康和存在感強的人。",
+    traits: ["femaleTall", "tall", "bright", "doubleEyelid", "stageBody", "sports", "dogFace", "luxury"]
+  },
+  {
+    name: "三上悠亞",
+    region: "日本",
+    gender: "female",
+    instagram: "https://www.instagram.com/yua_mikami/",
+    archetype: "甜美偶像型",
+    bio: "日本藝人、品牌主理人與前成人影像女優，形象甜美、外放，帶有偶像感和時尚感。",
+    traits: ["sweet", "dogFace", "bright", "fashion", "extrovert", "doubleEyelid", "femaleSoft", "luxury"]
+  },
+  {
+    name: "河北彩花",
+    region: "日本",
+    gender: "female",
+    instagram: "https://www.instagram.com/saika_kawakita__official/",
+    archetype: "清冷美人型",
+    bio: "日本成人影像與寫真系藝人，外型精緻清冷，適合喜歡貓相、耐看和畫報感的人。",
+    traits: ["catFace", "cool", "cinematic", "femaleTall", "fashion", "introvert", "monolid", "editorial"]
+  },
+  {
+    name: "深田詠美",
+    region: "日本",
+    gender: "female",
+    instagram: "https://www.instagram.com/eimi0318/",
+    archetype: "明艷直球型",
+    bio: "日本成人影像出身的藝人與網路創作者，形象外放、話題感強，適合喜歡自信直球型魅力的人。",
+    traits: ["bold", "confident", "direct", "extrovert", "luxury", "doubleEyelid", "femaleFit", "fashion"]
+  },
+  {
+    name: "明日花綺羅",
+    region: "日本",
+    gender: "female",
+    instagram: "https://www.instagram.com/asukakiraran/",
+    archetype: "華麗女王型",
+    bio: "日本藝人、模特兒與前成人影像女優，風格華麗鮮明，適合喜歡強烈明星感的人。",
+    traits: ["luxury", "confident", "fashion", "bold", "catFace", "stageBody", "doubleEyelid", "stylish"]
+  },
+  {
+    name: "葵司",
+    region: "日本",
+    gender: "female",
+    instagram: "https://www.instagram.com/tsukasa_aoi_8/",
+    archetype: "清純氣質型",
+    bio: "日本成人影像、寫真與演藝系藝人，氣質清爽柔和，適合喜歡乾淨和溫柔感的人。",
+    traits: ["clean", "gentle", "sweet", "dogFace", "introvert", "femaleSoft", "cinematic", "kind"]
+  },
+  {
     name: "Jungkook",
     region: "韓國",
     gender: "male",

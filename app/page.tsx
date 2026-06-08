@@ -182,6 +182,51 @@ const candidates: Candidate[] = [
     traits: ["cool", "creative", "deep", "cinematic", "catFace", "monolid", "introvert", "fashion", "femaleTall"]
   },
   {
+    name: "Suzy",
+    region: "韓國",
+    gender: "female",
+    instagram: "https://www.instagram.com/skuukzky/",
+    archetype: "初戀清爽型",
+    bio: "歌手與演員，形象清新自然，帶有乾淨、明亮又很有親近感的魅力。",
+    traits: ["dogFace", "bright", "clean", "doubleEyelid", "gentle", "femaleSoft", "calm", "cinematic"]
+  },
+  {
+    name: "Karina",
+    region: "韓國",
+    gender: "female",
+    instagram: "https://www.instagram.com/katarinabluu/",
+    archetype: "貓相冷艷型",
+    bio: "aespa 成員，舞台感強，外型精緻冷艷，適合喜歡貓相和時髦氣場的人。",
+    traits: ["catFace", "cool", "stylish", "confident", "dance", "stageBody", "fashion", "monolid"]
+  },
+  {
+    name: "Tzuyu",
+    region: "台灣／韓國",
+    gender: "female",
+    instagram: "https://www.instagram.com/thinkaboutzu/",
+    archetype: "高挑清甜型",
+    bio: "TWICE 成員，形象高挑、乾淨、溫柔，帶有安靜但很有存在感的氣質。",
+    traits: ["tall", "femaleTall", "sweet", "clean", "gentle", "introvert", "dogFace", "doubleEyelid"]
+  },
+  {
+    name: "Sana",
+    region: "日本／韓國",
+    gender: "female",
+    instagram: "https://www.instagram.com/m.by__sana/",
+    archetype: "甜感撒嬌型",
+    bio: "TWICE 成員，形象明亮甜美，擅長用自然活力和親近感帶動氣氛。",
+    traits: ["sweet", "dogFace", "bright", "extrovert", "funny", "teasing", "femaleSoft", "dance"]
+  },
+  {
+    name: "Jennie",
+    region: "韓國",
+    gender: "female",
+    instagram: "https://www.instagram.com/jennierubyjane/",
+    archetype: "時髦貓相型",
+    bio: "BLACKPINK 成員，風格時髦、眼神鮮明，適合喜歡貓相和精品感的人。",
+    traits: ["catFace", "fashion", "stylish", "confident", "cool", "monolid", "femaleFit", "luxury"]
+  },
+  {
     name: "Jungkook",
     region: "韓國",
     gender: "male",
@@ -243,6 +288,51 @@ const candidates: Candidate[] = [
     archetype: "陽光時髦型",
     bio: "演員與歌手，形象陽光、時髦，適合喜歡輕鬆自在又有外型存在感的人。",
     traits: ["bright", "stylish", "playful", "steady", "dogFace", "extrovert", "tall", "fashion", "maleTall"]
+  },
+  {
+    name: "V",
+    region: "韓國",
+    gender: "male",
+    instagram: "https://www.instagram.com/thv/",
+    archetype: "文藝神秘型",
+    bio: "BTS 成員，氣質帶有藝術感和神秘感，適合喜歡電影氛圍與低調魅力的人。",
+    traits: ["catFace", "cool", "mysterious", "cinematic", "music", "fashion", "introvert", "maleTall"]
+  },
+  {
+    name: "Cha Eun-woo",
+    region: "韓國",
+    gender: "male",
+    instagram: "https://www.instagram.com/eunwo.o_c/",
+    archetype: "清爽校草型",
+    bio: "ASTRO 成員與演員，形象乾淨、明亮、修長，適合喜歡清爽外型的人。",
+    traits: ["dogFace", "clean", "bright", "doubleEyelid", "maleTall", "gentle", "music", "steady"]
+  },
+  {
+    name: "Lee Min-ho",
+    region: "韓國",
+    gender: "male",
+    instagram: "https://www.instagram.com/actorleeminho/",
+    archetype: "成熟男主角型",
+    bio: "演員，形象高挑成熟，帶有經典韓劇男主角的穩定感和存在感。",
+    traits: ["tall", "maleTall", "steady", "confident", "luxury", "direct", "doubleEyelid", "cinematic"]
+  },
+  {
+    name: "許光漢",
+    region: "台灣",
+    gender: "male",
+    instagram: "https://www.instagram.com/kuanghanhsu/",
+    archetype: "乾淨鄰家型",
+    bio: "演員，氣質自然乾淨，帶有少年感和生活感，適合喜歡舒服相處節奏的人。",
+    traits: ["dogFace", "clean", "bright", "maleLean", "gentle", "calm", "cinematic", "coffee"]
+  },
+  {
+    name: "Win Metawin",
+    region: "泰國",
+    gender: "male",
+    instagram: "https://www.instagram.com/winmetawin/",
+    archetype: "陽光高挑型",
+    bio: "演員與歌手，形象高挑清爽，帶有外向、輕鬆和時髦的魅力。",
+    traits: ["dogFace", "bright", "extrovert", "maleTall", "fashion", "playful", "clean", "sports"]
   }
 ];
 
@@ -308,16 +398,25 @@ function scoreCandidate(selected: Option[], candidate: Candidate) {
   }, 0);
 }
 
+function stableAnswerIndex(selected: Option[], size: number) {
+  const key = selected.map((option) => option.id).join("|");
+  const hash = Array.from(key).reduce((total, char) => total + char.charCodeAt(0), 0);
+  return size === 0 ? 0 : hash % size;
+}
+
 function findBestMatch(selected: Option[]) {
   const genderPreference = selected.find((option) => option.genderPreference)?.genderPreference || "female";
   const pool = candidates.filter((candidate) => candidate.gender === genderPreference);
-
-  return pool
+  const ranked = pool
     .map((candidate) => ({
       ...candidate,
       score: scoreCandidate(selected, candidate)
     }))
-    .sort((a, b) => b.score - a.score)[0];
+    .sort((a, b) => b.score - a.score);
+  const topScore = ranked[0]?.score || 0;
+  const closeMatches = ranked.filter((candidate) => candidate.score >= topScore - 1);
+
+  return closeMatches[stableAnswerIndex(selected, closeMatches.length)] || ranked[0];
 }
 
 export default function Home() {

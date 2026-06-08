@@ -39,7 +39,7 @@ button {
 .hero,
 .result-visual {
   display: flex;
-  align-items: end;
+  align-items: flex-end;
   min-height: 100vh;
   padding: 8vw 6vw;
 }

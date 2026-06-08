@@ -4,12 +4,14 @@ import { ArrowLeft, ArrowRight, Instagram, RotateCcw, Sparkles } from "lucide-re
 import { useMemo, useState } from "react";
 
 type GenderPreference = "female" | "male";
+type ProfessionPreference = "actor" | "singer" | "idol";
 
 type Option = {
   id: string;
   label: string;
   tags: string[];
   genderPreference?: GenderPreference;
+  professionPreference?: ProfessionPreference;
 };
 
 type Question = {
@@ -38,8 +40,17 @@ const baseQuestions: Question[] = [
     ]
   },
   {
+    id: "profession",
+    title: "第二題：你喜歡哪種職業類型？",
+    options: [
+      { id: "actor", label: "演員：戲劇感強、故事感明顯", tags: ["actorPreference", "cinematic"], professionPreference: "actor" },
+      { id: "singer", label: "歌手：聲音有魅力、音樂感強", tags: ["singerPreference", "music"], professionPreference: "singer" },
+      { id: "idol", label: "偶像：舞台感強、外型和表演都亮眼", tags: ["idolPreference", "dance"], professionPreference: "idol" }
+    ]
+  },
+  {
     id: "faceType",
-    title: "第二題：你喜歡狗相還是貓相？",
+    title: "第三題：你喜歡狗相還是貓相？",
     options: [
       { id: "dog", label: "狗相：親近、陽光、笑起來很有感染力", tags: ["dogFace", "bright", "kind"] },
       { id: "cat", label: "貓相：高冷、精緻、眼神有距離感", tags: ["catFace", "cool", "mysterious"] }
@@ -47,7 +58,7 @@ const baseQuestions: Question[] = [
   },
   {
     id: "personality",
-    title: "第三題：你喜歡哪種個性？",
+    title: "第四題：你喜歡哪種個性？",
     options: [
       { id: "gentle", label: "溫柔照顧型", tags: ["gentle", "kind", "steady"] },
       { id: "confident", label: "自信主導型", tags: ["confident", "bold", "stylish"] },
@@ -57,7 +68,7 @@ const baseQuestions: Question[] = [
   },
   {
     id: "socialEnergy",
-    title: "第四題：你喜歡 I 人還是 E 人？",
+    title: "第五題：你喜歡 I 人還是 E 人？",
     options: [
       { id: "introvert", label: "I 人：安靜、慢熟、只對熟人打開", tags: ["introvert", "calm", "deep"] },
       { id: "extrovert", label: "E 人：外向、直接、能帶動氣氛", tags: ["extrovert", "bright", "bold"] }
@@ -65,7 +76,7 @@ const baseQuestions: Question[] = [
   },
   {
     id: "eyelid",
-    title: "第五題：你喜歡單眼皮還是雙眼皮？",
+    title: "第六題：你喜歡單眼皮還是雙眼皮？",
     options: [
       { id: "monolid", label: "單眼皮：清冷、耐看、眼神有特色", tags: ["monolid", "cool", "cinematic"] },
       { id: "double", label: "雙眼皮：明亮、甜感、表情更外放", tags: ["doubleEyelid", "sweet", "bright"] }
@@ -73,7 +84,7 @@ const baseQuestions: Question[] = [
   },
   {
     id: "date",
-    title: "第七題：你喜歡的約會安排是？",
+    title: "第八題：你喜歡的約會安排是？",
     options: [
       { id: "coffee", label: "咖啡廳深聊一下午", tags: ["calm", "deep", "steady"] },
       { id: "concert", label: "看演唱會或音樂節", tags: ["creative", "bright", "extrovert"] },
@@ -83,7 +94,7 @@ const baseQuestions: Question[] = [
   },
   {
     id: "communication",
-    title: "第八題：你喜歡對方怎麼表達好感？",
+    title: "第九題：你喜歡對方怎麼表達好感？",
     options: [
       { id: "direct", label: "直接告白，話說得很明確", tags: ["direct", "bold", "extrovert"] },
       { id: "actions", label: "用行動照顧你，不只會說", tags: ["acts", "kind", "steady"] },
@@ -93,7 +104,7 @@ const baseQuestions: Question[] = [
   },
   {
     id: "firstVibe",
-    title: "第九題：你喜歡的第一眼整體氣質是？",
+    title: "第十題：你喜歡的第一眼整體氣質是？",
     options: [
       { id: "sunny", label: "陽光少年／少女感", tags: ["sunny", "dogFace", "bright"] },
       { id: "cold", label: "高冷神秘感", tags: ["cold", "catFace", "mysterious"] },
@@ -103,7 +114,7 @@ const baseQuestions: Question[] = [
   },
   {
     id: "interest",
-    title: "第十題：你喜歡對方有哪種興趣偏好？",
+    title: "第十一題：你喜歡對方有哪種興趣偏好？",
     options: [
       { id: "music", label: "音樂創作、唱歌、樂器", tags: ["music", "creative", "deep"] },
       { id: "dance", label: "跳舞、舞台表演、節奏感", tags: ["dance", "bold", "athletic"] },
@@ -115,7 +126,7 @@ const baseQuestions: Question[] = [
 
 const femaleBodyQuestion: Question = {
   id: "bodyType",
-  title: "第六題：你喜歡的女生身材樣子是？",
+  title: "第七題：你喜歡的女生身材樣子是？",
   options: [
     { id: "femaleTall", label: "高挑模特感", tags: ["tall", "editorial", "stylish"] },
     { id: "femaleFit", label: "纖細但有運動線條", tags: ["fit", "athletic", "bright"] },
@@ -126,7 +137,7 @@ const femaleBodyQuestion: Question = {
 
 const maleBodyQuestion: Question = {
   id: "bodyType",
-  title: "第六題：你喜歡的男生身材樣子是？",
+  title: "第七題：你喜歡的男生身材樣子是？",
   options: [
     { id: "maleTall", label: "高挑修長型", tags: ["tall", "clean", "stylish"] },
     { id: "maleFit", label: "健身感明顯、肩膀寬", tags: ["fit", "athletic", "confident"] },
@@ -658,7 +669,26 @@ const tagLabels: Record<string, string> = {
 
 function getQuestions(genderPreference?: GenderPreference) {
   const bodyQuestion = genderPreference === "male" ? maleBodyQuestion : femaleBodyQuestion;
-  return [...baseQuestions.slice(0, 5), bodyQuestion, ...baseQuestions.slice(5)];
+  return [...baseQuestions.slice(0, 6), bodyQuestion, ...baseQuestions.slice(6)];
+}
+
+function getCandidateProfessions(candidate: Candidate): ProfessionPreference[] {
+  const profile = `${candidate.name} ${candidate.archetype} ${candidate.bio}`;
+  const professions = new Set<ProfessionPreference>();
+
+  if (profile.includes("演員") || profile.includes("成人影像") || profile.includes("寫真")) {
+    professions.add("actor");
+  }
+
+  if (profile.includes("歌手") || profile.includes("音樂") || candidate.traits.includes("music")) {
+    professions.add("singer");
+  }
+
+  if (profile.includes("成員") || candidate.traits.includes("dance")) {
+    professions.add("idol");
+  }
+
+  return Array.from(professions);
 }
 
 function scoreCandidate(selected: Option[], candidate: Candidate) {
@@ -676,7 +706,12 @@ function stableAnswerIndex(selected: Option[], size: number) {
 
 function findBestMatch(selected: Option[]) {
   const genderPreference = selected.find((option) => option.genderPreference)?.genderPreference || "female";
-  const pool = candidates.filter((candidate) => candidate.gender === genderPreference);
+  const professionPreference = selected.find((option) => option.professionPreference)?.professionPreference;
+  const genderPool = candidates.filter((candidate) => candidate.gender === genderPreference);
+  const professionPool = professionPreference
+    ? genderPool.filter((candidate) => getCandidateProfessions(candidate).includes(professionPreference))
+    : genderPool;
+  const pool = professionPool.length > 0 ? professionPool : genderPool;
   const ranked = pool
     .map((candidate) => ({
       ...candidate,
@@ -804,7 +839,7 @@ export default function Home() {
         <div className="hero-copy">
           <span className="eyebrow">AI 理想型配對</span>
           <h1>你的亞洲明星理想型是誰？</h1>
-          <p>回答十個明確偏好問題，讓 ChatGPT 依照性別、長相、個性、身材、約會和興趣，整理出最接近的亞洲明星類型。</p>
+          <p>回答十一個明確偏好問題，讓 ChatGPT 依照性別、職業、長相、個性、身材、約會和興趣，整理出最接近的亞洲明星類型。</p>
         </div>
       </section>
 

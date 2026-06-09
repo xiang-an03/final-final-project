@@ -328,6 +328,51 @@ const candidates: Candidate[] = [
     traits: ["sweet", "doubleEyelid", "music", "gentle", "dogFace", "clean", "femaleSoft", "bright"]
   },
   {
+    name: "Sakura",
+    region: "日本／韓國",
+    gender: "female",
+    instagram: "https://www.instagram.com/39saku_chan/",
+    archetype: "貓相偶像型",
+    bio: "LE SSERAFIM 成員，舞台經驗豐富，氣質精緻又帶一點冷感，適合喜歡成熟偶像感的人。",
+    traits: ["catFace", "cool", "fashion", "introvert", "idolPreference", "dance", "femaleTall", "monolid"]
+  },
+  {
+    name: "Kim Chaewon",
+    region: "韓國",
+    gender: "female",
+    instagram: "https://www.instagram.com/_chaechae_1/",
+    archetype: "短髮隊長型",
+    bio: "LE SSERAFIM 成員，形象俐落可愛，舞台上有自信和清爽的反差感。",
+    traits: ["dogFace", "bright", "confident", "dance", "clean", "femaleFit", "extrovert", "sweet"]
+  },
+  {
+    name: "Huh Yunjin",
+    region: "韓國／美國",
+    gender: "female",
+    instagram: "https://www.instagram.com/jenaissante/",
+    archetype: "創作主唱型",
+    bio: "LE SSERAFIM 成員，音樂創作和主唱特色鮮明，適合喜歡自信、才華和直球表達的人。",
+    traits: ["music", "creative", "bold", "direct", "confident", "femaleTall", "doubleEyelid", "extrovert"]
+  },
+  {
+    name: "Kazuha",
+    region: "日本／韓國",
+    gender: "female",
+    instagram: "https://www.instagram.com/zuhazana/",
+    archetype: "芭蕾清冷型",
+    bio: "LE SSERAFIM 成員，具芭蕾背景，形象高挑清冷，適合喜歡優雅和運動線條的人。",
+    traits: ["femaleTall", "tall", "athletic", "cool", "clean", "catFace", "dance", "femaleFit"]
+  },
+  {
+    name: "Hong Eunchae",
+    region: "韓國",
+    gender: "female",
+    instagram: "https://www.instagram.com/hhh.e_c.v/",
+    archetype: "忙內陽光型",
+    bio: "LE SSERAFIM 成員，形象活潑明亮，帶有年輕、親近和舞台活力。",
+    traits: ["dogFace", "bright", "playful", "extrovert", "dance", "sweet", "femaleSoft", "teasing"]
+  },
+  {
     name: "瀨戶環奈",
     region: "日本",
     gender: "female",

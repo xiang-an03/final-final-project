@@ -211,27 +211,6 @@ h1 {
   justify-content: center;
 }
 
-.celebrity-photo-wrap {
-  width: min(100%, 260px);
-}
-
-.celebrity-photo {
-  width: 100%;
-  aspect-ratio: 4 / 5;
-  display: block;
-  object-fit: cover;
-  border: 1px solid var(--line);
-  border-radius: 8px;
-  background: rgba(255, 255, 255, 0.06);
-}
-
-.celebrity-photo.placeholder {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: var(--gold);
-}
-
 .match-score {
   display: grid;
   gap: 6px;

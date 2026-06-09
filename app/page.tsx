@@ -992,7 +992,6 @@ export default function Home() {
   const [source, setSource] = useState<"openai" | "local" | "">("");
   const [loading, setLoading] = useState(false);
   const [selectedMatchName, setSelectedMatchName] = useState("");
-  const [photoUrl, setPhotoUrl] = useState("");
   const genderPreference = answers.gender?.genderPreference;
   const questions = useMemo(() => getQuestions(genderPreference), [genderPreference]);
   const current = questions[step];
@@ -1007,17 +1006,6 @@ export default function Home() {
       : localMatch;
   }, [localMatch, selectedMatchName, selectedOptions]);
   const progress = Math.round(((step + 1) / questions.length) * 100);
-
-  async function loadPhoto(name: string) {
-    setPhotoUrl("");
-    try {
-      const response = await fetch(`/api/photo?name=${encodeURIComponent(name)}`);
-      const data = await response.json();
-      setPhotoUrl(data.imageUrl || "");
-    } catch {
-      setPhotoUrl("");
-    }
-  }
 
   async function selectAnswer(option: Option) {
     const nextAnswers = { ...answers, [current.id]: option };
@@ -1038,7 +1026,6 @@ export default function Home() {
     const finalMatch = findBestMatch(finalSelected);
     const shortlist = getRankedMatches(finalSelected);
     setSelectedMatchName(finalMatch.name);
-    loadPhoto(finalMatch.name);
 
     try {
       const response = await fetch("/api/match", {
@@ -1055,7 +1042,6 @@ export default function Home() {
       const data = await response.json();
       const finalName = data.selectedName || finalMatch.name;
       setSelectedMatchName(finalName);
-      loadPhoto(finalName);
       setReason(data.reason);
       setSource(data.source);
     } finally {
@@ -1070,7 +1056,6 @@ export default function Home() {
     setSource("");
     setLoading(false);
     setSelectedMatchName("");
-    setPhotoUrl("");
   }
 
   if (isComplete) {
@@ -1093,15 +1078,6 @@ export default function Home() {
         </section>
 
         <section className="result-panel">
-          <div className="celebrity-photo-wrap">
-            {photoUrl ? (
-              <img className="celebrity-photo" src={photoUrl} alt={`${match.name} 的公開照片`} />
-            ) : (
-              <div className="celebrity-photo placeholder">
-                <Sparkles size={28} />
-              </div>
-            )}
-          </div>
           <div className="match-score">
             <span>{Math.min(99, 74 + match.score * 3)}%</span>
             <p>心動匹配度</p>

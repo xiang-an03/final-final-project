@@ -672,23 +672,34 @@ function getQuestions(genderPreference?: GenderPreference) {
   return [...baseQuestions.slice(0, 6), bodyQuestion, ...baseQuestions.slice(6)];
 }
 
-function getCandidateProfessions(candidate: Candidate): ProfessionPreference[] {
+function getCandidateProfession(candidate: Candidate): ProfessionPreference {
   const profile = `${candidate.name} ${candidate.archetype} ${candidate.bio}`;
-  const professions = new Set<ProfessionPreference>();
+  const idolGroups = [
+    "BLACKPINK",
+    "BTS",
+    "TWICE",
+    "aespa",
+    "IVE",
+    "(G)I-DLE",
+    "EXO",
+    "SEVENTEEN",
+    "Stray Kids",
+    "TXT",
+    "ASTRO",
+    "SHINee",
+    "BIGBANG",
+    "成員"
+  ];
 
-  if (profile.includes("演員") || profile.includes("成人影像") || profile.includes("寫真")) {
-    professions.add("actor");
+  if (idolGroups.some((group) => profile.includes(group))) {
+    return "idol";
   }
 
   if (profile.includes("歌手") || profile.includes("音樂") || candidate.traits.includes("music")) {
-    professions.add("singer");
+    return "singer";
   }
 
-  if (profile.includes("成員") || candidate.traits.includes("dance")) {
-    professions.add("idol");
-  }
-
-  return Array.from(professions);
+  return "actor";
 }
 
 function scoreCandidate(selected: Option[], candidate: Candidate) {
@@ -709,7 +720,7 @@ function findBestMatch(selected: Option[]) {
   const professionPreference = selected.find((option) => option.professionPreference)?.professionPreference;
   const genderPool = candidates.filter((candidate) => candidate.gender === genderPreference);
   const professionPool = professionPreference
-    ? genderPool.filter((candidate) => getCandidateProfessions(candidate).includes(professionPreference))
+    ? genderPool.filter((candidate) => getCandidateProfession(candidate) === professionPreference)
     : genderPool;
   const pool = professionPool.length > 0 ? professionPool : genderPool;
   const ranked = pool

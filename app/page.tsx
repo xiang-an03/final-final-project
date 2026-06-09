@@ -377,6 +377,96 @@ const candidates: Candidate[] = [
     traits: ["dogFace", "bright", "playful", "extrovert", "dance", "sweet", "femaleSoft", "teasing"]
   },
   {
+    name: "Minji",
+    region: "韓國",
+    gender: "female",
+    instagram: "https://www.instagram.com/newjeans_official/",
+    archetype: "清爽校園型",
+    bio: "NewJeans 成員，形象自然清爽，適合喜歡乾淨、鄰家和沉穩氣質的人。",
+    traits: ["dogFace", "clean", "calm", "steady", "femaleTall", "introvert", "fashion", "doubleEyelid"]
+  },
+  {
+    name: "Hanni",
+    region: "越南／韓國",
+    gender: "female",
+    instagram: "https://www.instagram.com/newjeans_official/",
+    archetype: "甜笑音色型",
+    bio: "NewJeans 成員，形象甜美親近，聲音和表情都帶有自然可愛感。",
+    traits: ["dogFace", "sweet", "music", "bright", "femaleSoft", "funny", "teasing", "clean"]
+  },
+  {
+    name: "Danielle",
+    region: "澳洲／韓國",
+    gender: "female",
+    instagram: "https://www.instagram.com/newjeans_official/",
+    archetype: "陽光混血型",
+    bio: "NewJeans 成員，形象明亮外放，帶有陽光、自然和活潑的魅力。",
+    traits: ["dogFace", "bright", "extrovert", "femaleTall", "doubleEyelid", "fashion", "playful", "sports"]
+  },
+  {
+    name: "Haerin",
+    region: "韓國",
+    gender: "female",
+    instagram: "https://www.instagram.com/newjeans_official/",
+    archetype: "貓相冷甜型",
+    bio: "NewJeans 成員，氣質安靜精緻，適合喜歡貓相、冷感和反差甜感的人。",
+    traits: ["catFace", "cool", "introvert", "monolid", "sweet", "clean", "femaleSoft", "fashion"]
+  },
+  {
+    name: "Hyein",
+    region: "韓國",
+    gender: "female",
+    instagram: "https://www.instagram.com/newjeans_official/",
+    archetype: "高挑畫報型",
+    bio: "NewJeans 成員，形象高挑時髦，帶有年輕但很有鏡頭感的氣質。",
+    traits: ["femaleTall", "tall", "editorial", "fashion", "catFace", "cool", "dance", "clean"]
+  },
+  {
+    name: "Yeji",
+    region: "韓國",
+    gender: "female",
+    instagram: "https://www.instagram.com/itzy.all.in.us/",
+    archetype: "貓眼隊長型",
+    bio: "ITZY 成員，舞台氣勢強，眼神俐落，適合喜歡貓相和自信舞台感的人。",
+    traits: ["catFace", "monolid", "dance", "confident", "bold", "femaleFit", "stageBody", "fashion"]
+  },
+  {
+    name: "Ryujin",
+    region: "韓國",
+    gender: "female",
+    instagram: "https://www.instagram.com/itzy.all.in.us/",
+    archetype: "酷感直球型",
+    bio: "ITZY 成員，氣質帥氣直率，適合喜歡自信、酷感和俐落反差的人。",
+    traits: ["cool", "direct", "confident", "dance", "femaleFit", "catFace", "teasing", "fashion"]
+  },
+  {
+    name: "Yuna",
+    region: "韓國",
+    gender: "female",
+    instagram: "https://www.instagram.com/itzy.all.in.us/",
+    archetype: "明亮高挑型",
+    bio: "ITZY 成員，形象高挑明亮，帶有青春感和強烈鏡頭存在感。",
+    traits: ["femaleTall", "bright", "dogFace", "doubleEyelid", "extrovert", "dance", "fashion", "sweet"]
+  },
+  {
+    name: "Sullyoon",
+    region: "韓國",
+    gender: "female",
+    instagram: "https://www.instagram.com/nmixx_official/",
+    archetype: "清純主唱型",
+    bio: "NMIXX 成員，形象甜美精緻，適合喜歡清純、音樂感和明亮外型的人。",
+    traits: ["sweet", "music", "doubleEyelid", "clean", "dogFace", "femaleSoft", "gentle", "bright"]
+  },
+  {
+    name: "Haewon",
+    region: "韓國",
+    gender: "female",
+    instagram: "https://www.instagram.com/nmixx_official/",
+    archetype: "幽默主唱型",
+    bio: "NMIXX 成員，歌唱實力強，也有幽默和外向的綜藝感。",
+    traits: ["music", "funny", "extrovert", "bright", "dogFace", "direct", "femaleFit", "teasing"]
+  },
+  {
     name: "瀨戶環奈",
     region: "日本",
     gender: "female",
@@ -663,6 +753,105 @@ const candidates: Candidate[] = [
     archetype: "潮流創作型",
     bio: "BIGBANG 成員與創作人，風格強烈，適合喜歡音樂、時尚和個人態度的人。",
     traits: ["music", "fashion", "creative", "confident", "catFace", "artistic", "focused", "luxury"]
+  },
+  {
+    name: "Sunghoon",
+    region: "韓國",
+    gender: "male",
+    instagram: "https://www.instagram.com/enhypen/",
+    archetype: "冰上王子型",
+    bio: "ENHYPEN 成員，形象清冷修長，適合喜歡高冷、乾淨和王子感的人。",
+    traits: ["catFace", "cool", "maleTall", "clean", "introvert", "monolid", "fashion", "dance"]
+  },
+  {
+    name: "Heeseung",
+    region: "韓國",
+    gender: "male",
+    instagram: "https://www.instagram.com/enhypen/",
+    archetype: "全能主唱型",
+    bio: "ENHYPEN 成員，歌唱和舞台能力均衡，適合喜歡才華、音樂感和穩定魅力的人。",
+    traits: ["music", "dance", "focused", "steady", "maleTall", "dogFace", "bright", "gentle"]
+  },
+  {
+    name: "Jungwon",
+    region: "韓國",
+    gender: "male",
+    instagram: "https://www.instagram.com/enhypen/",
+    archetype: "貓相隊長型",
+    bio: "ENHYPEN 成員，氣質乾淨但眼神有特色，適合喜歡貓相、可靠和反差感的人。",
+    traits: ["catFace", "monolid", "steady", "clean", "dance", "maleLean", "introvert", "quietCare"]
+  },
+  {
+    name: "Ni-ki",
+    region: "日本／韓國",
+    gender: "male",
+    instagram: "https://www.instagram.com/enhypen/",
+    archetype: "高挑舞者型",
+    bio: "ENHYPEN 成員，舞蹈線條強，形象高挑冷感，適合喜歡舞台和成長型魅力的人。",
+    traits: ["dance", "maleTall", "athletic", "cool", "catFace", "fashion", "stageBody", "focused"]
+  },
+  {
+    name: "Wonbin",
+    region: "韓國",
+    gender: "male",
+    instagram: "https://www.instagram.com/riize_official/",
+    archetype: "新世代貓相型",
+    bio: "RIIZE 成員，外型時髦精緻，適合喜歡貓相、畫報感和新生代偶像氣質的人。",
+    traits: ["catFace", "fashion", "cool", "maleLean", "dance", "monolid", "stylish", "introvert"]
+  },
+  {
+    name: "Sohee",
+    region: "韓國",
+    gender: "male",
+    instagram: "https://www.instagram.com/riize_official/",
+    archetype: "甜笑主唱型",
+    bio: "RIIZE 成員，笑容親近，聲音明亮，適合喜歡狗相和清爽音樂感的人。",
+    traits: ["dogFace", "music", "bright", "sweet", "clean", "extrovert", "maleLean", "teasing"]
+  },
+  {
+    name: "Anton",
+    region: "韓國／美國",
+    gender: "male",
+    instagram: "https://www.instagram.com/riize_official/",
+    archetype: "安靜清爽型",
+    bio: "RIIZE 成員，形象乾淨安靜，適合喜歡慢熟、清爽和低調氣質的人。",
+    traits: ["clean", "introvert", "calm", "maleTall", "dogFace", "gentle", "music", "quietCare"]
+  },
+  {
+    name: "Mark",
+    region: "加拿大／韓國",
+    gender: "male",
+    instagram: "https://www.instagram.com/onyourm__ark/",
+    archetype: "才華饒舌型",
+    bio: "NCT 成員，舞台和音樂表現都很鮮明，適合喜歡才華、幽默和努力感的人。",
+    traits: ["music", "dance", "funny", "dogFace", "bright", "focused", "maleLean", "direct"]
+  },
+  {
+    name: "Jaehyun",
+    region: "韓國",
+    gender: "male",
+    instagram: "https://www.instagram.com/_jeongjaehyun/",
+    archetype: "低音男主角型",
+    bio: "NCT 成員與演員，形象成熟乾淨，適合喜歡低調、穩定和男主角感的人。",
+    traits: ["music", "actorPreference", "clean", "maleTall", "steady", "dogFace", "cinematic", "calm"]
+  },
+  {
+    name: "Haechan",
+    region: "韓國",
+    gender: "male",
+    instagram: "https://www.instagram.com/nct/",
+    archetype: "陽光主唱型",
+    bio: "NCT 成員，聲音有辨識度，個性活潑，適合喜歡明亮和幽默互動的人。",
+    traits: ["music", "bright", "extrovert", "funny", "dogFace", "teasing", "dance", "playful"]
+  },
+  {
+    name: "Doyoung",
+    region: "韓國",
+    gender: "male",
+    instagram: "https://www.instagram.com/do0_nct/",
+    archetype: "細膩主唱型",
+    bio: "NCT 成員，聲音細膩，氣質溫柔穩定，適合喜歡音樂感和體貼型的人。",
+    traits: ["music", "gentle", "kind", "steady", "introvert", "clean", "doubleEyelid", "quietCare"]
   }
 ];
 
@@ -737,6 +926,13 @@ function getCandidateProfession(candidate: Candidate): ProfessionPreference {
     "ASTRO",
     "SHINee",
     "BIGBANG",
+    "LE SSERAFIM",
+    "NewJeans",
+    "ITZY",
+    "NMIXX",
+    "ENHYPEN",
+    "RIIZE",
+    "NCT",
     "成員"
   ];
 
@@ -840,7 +1036,7 @@ export default function Home() {
     setLoading(true);
     const finalSelected = Object.values(nextAnswers);
     const finalMatch = findBestMatch(finalSelected);
-    const shortlist = getRankedMatches(finalSelected).slice(0, 8);
+    const shortlist = getRankedMatches(finalSelected);
     setSelectedMatchName(finalMatch.name);
     loadPhoto(finalMatch.name);
 
@@ -913,7 +1109,7 @@ export default function Home() {
           <div>
             <h2>為什麼會配到 TA？</h2>
             <p className="reason">
-              {loading ? "ChatGPT 正在比較候選藝人，這可能需要 5-10 秒..." : reason || "你們的氣質很合拍，相處起來有舒服又有火花的可能。"}
+              {loading ? "ChatGPT 正在比較完整候選名單，這可能需要 5-10 秒..." : reason || "你們的氣質很合拍，相處起來有舒服又有火花的可能。"}
             </p>
             <p className="bio">{match.bio}</p>
             <div className="traits">{matchedTraits}</div>

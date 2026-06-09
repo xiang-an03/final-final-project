@@ -30,6 +30,10 @@ type Candidate = {
   traits: string[];
 };
 
+type ScoredCandidate = Candidate & {
+  score: number;
+};
+
 const baseQuestions: Question[] = [
   {
     id: "gender",
@@ -760,7 +764,7 @@ function stableAnswerIndex(selected: Option[], size: number) {
   return size === 0 ? 0 : hash % size;
 }
 
-function findBestMatch(selected: Option[]) {
+function getRankedMatches(selected: Option[]) {
   const genderPreference = selected.find((option) => option.genderPreference)?.genderPreference || "female";
   const professionPreference = selected.find((option) => option.professionPreference)?.professionPreference;
   const genderPool = candidates.filter((candidate) => candidate.gender === genderPreference);
@@ -768,12 +772,17 @@ function findBestMatch(selected: Option[]) {
     ? genderPool.filter((candidate) => getCandidateProfession(candidate) === professionPreference)
     : genderPool;
   const pool = professionPool.length > 0 ? professionPool : genderPool;
-  const ranked = pool
+
+  return pool
     .map((candidate) => ({
       ...candidate,
       score: scoreCandidate(selected, candidate)
     }))
     .sort((a, b) => b.score - a.score);
+}
+
+function findBestMatch(selected: Option[]) {
+  const ranked = getRankedMatches(selected);
   const topScore = ranked[0]?.score || 0;
   const closeMatches = ranked.filter((candidate) => candidate.score >= topScore - 1);
 
@@ -786,14 +795,33 @@ export default function Home() {
   const [reason, setReason] = useState("");
   const [source, setSource] = useState<"openai" | "local" | "">("");
   const [loading, setLoading] = useState(false);
+  const [selectedMatchName, setSelectedMatchName] = useState("");
+  const [photoUrl, setPhotoUrl] = useState("");
   const genderPreference = answers.gender?.genderPreference;
   const questions = useMemo(() => getQuestions(genderPreference), [genderPreference]);
   const current = questions[step];
   const isComplete = Object.keys(answers).length === questions.length;
 
   const selectedOptions = useMemo(() => Object.values(answers), [answers]);
-  const match = useMemo(() => findBestMatch(selectedOptions), [selectedOptions]);
+  const localMatch = useMemo(() => findBestMatch(selectedOptions), [selectedOptions]);
+  const match = useMemo(() => {
+    const selected = selectedMatchName ? candidates.find((candidate) => candidate.name === selectedMatchName) : null;
+    return selected
+      ? { ...selected, score: scoreCandidate(selectedOptions, selected) }
+      : localMatch;
+  }, [localMatch, selectedMatchName, selectedOptions]);
   const progress = Math.round(((step + 1) / questions.length) * 100);
+
+  async function loadPhoto(name: string) {
+    setPhotoUrl("");
+    try {
+      const response = await fetch(`/api/photo?name=${encodeURIComponent(name)}`);
+      const data = await response.json();
+      setPhotoUrl(data.imageUrl || "");
+    } catch {
+      setPhotoUrl("");
+    }
+  }
 
   async function selectAnswer(option: Option) {
     const nextAnswers = { ...answers, [current.id]: option };
@@ -810,7 +838,11 @@ export default function Home() {
     }
 
     setLoading(true);
-    const finalMatch = findBestMatch(Object.values(nextAnswers));
+    const finalSelected = Object.values(nextAnswers);
+    const finalMatch = findBestMatch(finalSelected);
+    const shortlist = getRankedMatches(finalSelected).slice(0, 8);
+    setSelectedMatchName(finalMatch.name);
+    loadPhoto(finalMatch.name);
 
     try {
       const response = await fetch("/api/match", {
@@ -820,10 +852,14 @@ export default function Home() {
           answers: Object.fromEntries(
             Object.entries(nextAnswers).map(([key, value]) => [key, value.label])
           ),
-          candidate: finalMatch
+          candidate: finalMatch,
+          candidates: shortlist
         })
       });
       const data = await response.json();
+      const finalName = data.selectedName || finalMatch.name;
+      setSelectedMatchName(finalName);
+      loadPhoto(finalName);
       setReason(data.reason);
       setSource(data.source);
     } finally {
@@ -837,6 +873,8 @@ export default function Home() {
     setReason("");
     setSource("");
     setLoading(false);
+    setSelectedMatchName("");
+    setPhotoUrl("");
   }
 
   if (isComplete) {
@@ -859,6 +897,15 @@ export default function Home() {
         </section>
 
         <section className="result-panel">
+          <div className="celebrity-photo-wrap">
+            {photoUrl ? (
+              <img className="celebrity-photo" src={photoUrl} alt={`${match.name} 的公開照片`} />
+            ) : (
+              <div className="celebrity-photo placeholder">
+                <Sparkles size={28} />
+              </div>
+            )}
+          </div>
           <div className="match-score">
             <span>{Math.min(99, 74 + match.score * 3)}%</span>
             <p>心動匹配度</p>
@@ -866,7 +913,7 @@ export default function Home() {
           <div>
             <h2>為什麼會配到 TA？</h2>
             <p className="reason">
-              {loading ? "正在整理你的心動線索..." : reason || "你們的氣質很合拍，相處起來有舒服又有火花的可能。"}
+              {loading ? "ChatGPT 正在比較候選藝人，這可能需要 5-10 秒..." : reason || "你們的氣質很合拍，相處起來有舒服又有火花的可能。"}
             </p>
             <p className="bio">{match.bio}</p>
             <div className="traits">{matchedTraits}</div>
